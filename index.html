@@ -1,0 +1,323 @@
+import React, { useState, useEffect } from 'react';
+import {
+  Smartphone,
+  Battery,
+  Camera,
+  Cpu,
+  ChevronRight,
+  Star,
+  CheckCircle2,
+  Menu,
+  X,
+  ShieldCheck,
+  Gift,
+  MousePointerClick,
+  Users,
+  CreditCard,
+  Truck
+} from 'lucide-react';
+ 
+const App = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    model: 'Galaxy S24 Ultra',
+    carrier: 'SKT'
+  });
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`${formData.name}님, 최저가 견적 신청이 완료되었습니다. 확인 후 곧 연락드리겠습니다!`);
+  };
+ 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+ 
+  return (
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 overflow-x-hidden">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-white py-4'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Smartphone className="text-white w-5 h-5" />
+            </div>
+            <span className="text-xl font-extrabold tracking-tight text-blue-600">스마트모바일</span>
+          </div>
+         
+          <div className="hidden md:flex gap-8 items-center font-bold text-sm">
+            <a href="#how-it-works" className="text-slate-500 hover:text-blue-600 transition-colors">구매 절차</a>
+            <a href="#benefits" className="text-slate-500 hover:text-blue-600 transition-colors">특별 혜택</a>
+            <a href="#reviews" className="text-slate-500 hover:text-blue-600 transition-colors">리얼 후기</a>
+            <a href="#apply" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">견적 신청</a>
+          </div>
+ 
+          <button className="md:hidden p-2 text-slate-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </nav>
+ 
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white flex flex-col pt-24 px-6 gap-6 md:hidden">
+          <a href="#how-it-works" className="text-2xl font-bold border-b pb-4" onClick={() => setMobileMenuOpen(false)}>구매 절차</a>
+          <a href="#benefits" className="text-2xl font-bold border-b pb-4" onClick={() => setMobileMenuOpen(false)}>특별 혜택</a>
+          <a href="#reviews" className="text-2xl font-bold border-b pb-4" onClick={() => setMobileMenuOpen(false)}>리얼 후기</a>
+          <a href="#apply" className="text-2xl font-bold text-blue-600" onClick={() => setMobileMenuOpen(false)}>견적 신청하기</a>
+        </div>
+      )}
+ 
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+            <div className="w-full lg:w-1/2 space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom duration-700">
+              <div className="inline-flex items-center gap-2 bg-white border border-blue-200 px-4 py-2 rounded-full shadow-sm">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
+                </span>
+                <span className="text-xs md:text-sm font-bold text-blue-700">실시간 최저가 갱신 완료</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.15] md:leading-tight">
+                대리점 마진 없이 <br className="hidden md:block" />
+                <span className="text-blue-600 underline decoration-blue-200 decoration-8 underline-offset-4">공장가 그대로.</span>
+              </h1>
+              <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-lg">
+                복잡한 요금제 설명에 속지 마세요. 불필요한 부가서비스 없이 가장 투명하고 정직한 가격으로 승부합니다.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#apply" className="flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 active:scale-95">
+                  최저가 찾기 <MousePointerClick size={20} />
+                </a>
+                <div className="flex items-center justify-center gap-3 px-6 py-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                  <Users className="text-blue-500" size={20} />
+                  <span className="text-sm font-semibold">이번 주 1,280명 이용</span>
+                </div>
+              </div>
+            </div>
+           
+            <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-blue-200/40 rounded-full blur-[80px] -z-10"></div>
+              <div className="relative bg-white p-4 md:p-6 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-slate-100 rotate-2 max-w-[280px] md:max-w-xs">
+                <div className="bg-slate-50 aspect-[9/19] rounded-[2rem] md:rounded-[2.5rem] flex items-center justify-center border-4 border-slate-900 overflow-hidden">
+                  <div className="text-center">
+                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Latest Model</p>
+                     <Smartphone size={60} className="text-slate-200 mx-auto" />
+                  </div>
+                </div>
+                {/* Feature Tags */}
+                <div className="absolute -left-8 md:-left-12 top-1/4 bg-white p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl border border-slate-50 -rotate-6">
+                  <p className="text-[10px] text-slate-500">지원금 혜택</p>
+                  <p className="text-sm md:text-base font-bold text-green-600">최대 65만원</p>
+                </div>
+                <div className="absolute -right-6 md:-right-8 bottom-1/4 bg-blue-600 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl rotate-3">
+                  <p className="text-[10px] text-blue-100">기존 폰 보상</p>
+                  <p className="text-sm md:text-base font-bold text-white">최고가 매입</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      {/* How it Works */}
+      <section id="how-it-works" className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl font-bold mb-4">어렵지 않습니다</h2>
+            <p className="text-slate-500">신청부터 수령까지 딱 3단계</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { step: '01', title: '온라인 상담 신청', desc: '성함과 연락처만 남겨주시면 끝!', icon: <MousePointerClick /> },
+              { step: '02', title: '맞춤 견적 확인', desc: '전문 상담원이 가장 유리한 요금제 설계', icon: <CreditCard /> },
+              { step: '03', title: '당일 수령 및 개통', desc: '전국 어디든 당일 배송 및 즉시 개통', icon: <Truck /> },
+            ].map((item, i) => (
+              <div key={i} className="relative p-8 md:p-10 bg-slate-50 rounded-3xl border border-slate-100 text-center group hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold shadow-lg">
+                  {item.step}
+                </div>
+                <div className="mb-4 md:mb-6 text-blue-600 flex justify-center">{item.icon}</div>
+                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{item.title}</h3>
+                <p className="text-sm md:text-base text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+ 
+      {/* Benefits Section */}
+      <section id="benefits" className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="bg-blue-600 text-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 lg:p-20 overflow-hidden relative">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="space-y-6 md:space-y-8">
+                <h2 className="text-3xl md:text-4xl font-black leading-tight">스마트모바일에서만 <br className="hidden md:block" />제공하는 혜택</h2>
+                <div className="space-y-4">
+                  {[
+                    { icon: <ShieldCheck />, title: '사후 관리 보장', desc: '개통 후 1년간 파손 보험료 50% 지원' },
+                    { icon: <Gift />, title: '사은품 7종 패키지', desc: '케이스, 필름, 보조배터리 등 필수품 전원 증정' },
+                    { icon: <CreditCard />, title: '제휴 카드 추가 할인', desc: '사용 실적에 따라 월 최대 2.5만원 추가 할인' }
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex gap-4 p-5 md:p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/10">
+                      <div className="text-blue-300 flex-shrink-0">{benefit.icon}</div>
+                      <div>
+                        <h4 className="font-bold text-base md:text-lg mb-1">{benefit.title}</h4>
+                        <p className="text-blue-100 text-xs md:text-sm">{benefit.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+ 
+              <div className="bg-white text-slate-900 p-6 md:p-10 rounded-3xl shadow-2xl" id="apply">
+                <div className="text-center mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-black mb-2">실시간 최저가 확인</h3>
+                  <p className="text-slate-500 text-sm">상담은 100% 무료이며, 강요가 없습니다.</p>
+                </div>
+               
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-500 ml-1">성함</label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="홍길동"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-blue-600 outline-none transition-all"
+                        value={formData.name}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-500 ml-1">연락처</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        placeholder="010-0000-0000"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-blue-600 outline-none transition-all"
+                        value={formData.phone}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-500 ml-1">관심 기종</label>
+                    <select
+                      name="model"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-blue-600 outline-none transition-all"
+                      value={formData.model}
+                      onChange={handleChange}
+                    >
+                      <option>Galaxy S24 Ultra</option>
+                      <option>iPhone 15 Pro</option>
+                      <option>Galaxy Z Flip 5</option>
+                      <option>기타 (상담 문의)</option>
+                    </select>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-500 ml-1">통신사 선택</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {['SKT', 'KT', 'LG U+'].map(c => (
+                        <button
+                          key={c}
+                          type="button"
+                          onClick={() => setFormData({...formData, carrier: c})}
+                          className={`py-2 md:py-3 rounded-xl border font-bold text-xs md:text-sm transition-all ${formData.carrier === c ? 'bg-blue-600 border-blue-600 text-white' : 'bg-white border-slate-200 text-slate-500 hover:border-blue-200'}`}
+                        >
+                          {c}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <button type="submit" className="w-full bg-slate-900 text-white py-4 md:py-5 rounded-xl font-bold text-lg md:text-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 group mt-2">
+                    무료 견적 받기 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <p className="text-[10px] text-center text-slate-400 mt-4 leading-relaxed">
+                    상기 정보는 견적 산출을 위한 최소한의 개인정보로 활용 후 파기됩니다.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      {/* Review Section */}
+      <section id="reviews" className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">실제 고객님들의 리얼 후기</h2>
+            <p className="text-slate-500 text-sm">거짓 없는 100% 리얼 구매 리뷰</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: '이*민', model: 'Galaxy S24', rating: 5, text: '집 근처 대리점보다 30만원 더 싸게 샀어요. 진짜 대박입니다.' },
+              { name: '김*현', model: 'iPhone 15 Pro', rating: 5, text: '퀵으로 당일에 바로 받았어요. 상담원분이 너무 친절하셔서 믿고 했습니다.' },
+              { name: '박*서', model: 'Z Flip 5', rating: 5, text: '복잡한 거 싫어하는데 요금제 딱 필요한 것만 추천해주셔서 좋았습니다.' }
+            ].map((review, i) => (
+              <div key={i} className="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm text-left flex flex-col justify-between">
+                <div>
+                  <div className="flex gap-1 text-yellow-400 mb-4">
+                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                  </div>
+                  <p className="text-slate-700 mb-6 font-medium italic text-sm md:text-base leading-relaxed">"{review.text}"</p>
+                </div>
+                <div className="flex justify-between items-center text-[11px] md:text-xs pt-4 border-t border-slate-50">
+                  <span className="font-bold text-slate-900">{review.name} 고객님</span>
+                  <span className="text-slate-400 font-medium">{review.model} 구매</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+ 
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-500 py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+          <div className="space-y-6">
+            <div className="flex items-center gap-2 text-white">
+              <Smartphone className="w-5 h-5 text-blue-500" />
+              <span className="text-lg font-bold italic tracking-tighter">스마트모바일</span>
+            </div>
+            <div className="text-[10px] md:text-xs space-y-2 leading-loose opacity-70">
+              <p>주식회사 스마트엠에스 | 대표자: 홍길동 | 개인정보책임자: 김철수</p>
+              <p>사업자등록번호: 222-88-00000 | 통신판매업: 제2024-서울강남-0000호</p>
+              <p>본사: 서울특별시 서초구 반포대로 123 스마트빌딩 8층</p>
+            </div>
+          </div>
+          <div className="md:text-right flex flex-col justify-end">
+            <div className="text-white font-black text-2xl md:text-3xl mb-2">1588-0000</div>
+            <p className="text-xs md:text-sm">평일 상담: 09:30 ~ 18:30 / 토요일: 10:00 ~ 15:00</p>
+            <div className="flex md:justify-end gap-4 md:gap-6 mt-6 text-[10px] md:text-xs underline underline-offset-4">
+              <a href="#" className="hover:text-white transition-colors">개인정보처리방침</a>
+              <a href="#" className="hover:text-white transition-colors">이용약관</a>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-10 pt-8 border-t border-white/5 text-[10px] text-center opacity-30">
+          COPYRIGHT © SMART MOBILE ALL RIGHTS RESERVED.
+        </div>
+      </footer>
+    </div>
+  );
+};
+ 
+export default App;
+ 
