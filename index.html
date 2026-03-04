@@ -7,30 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <script>
-      (function() {
-        var w = window;
-        if (w.ChannelIO) { return w.console.error('ChannelIO script included twice.'); }
-        var ch = function() { ch.c(arguments); };
-        ch.q = []; ch.c = function(args) { ch.q.push(args); };
-        w.ChannelIO = ch;
-        function l() {
-          if (w.ChannelIOInitialized) { return; }
-          w.ChannelIOInitialized = true;
-          var s = document.createElement('script');
-          s.type = 'text/javascript'; s.async = true;
-          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-          var x = document.getElementsByTagName('script')[0];
-          if (x) { x.parentNode.insertBefore(s, x); }
-        }
-        if (document.readyState === 'complete') { l(); }
-        else { w.addEventListener('DOMContentLoaded', l); w.addEventListener('load', l); }
-      })();
-    
-      ChannelIO('boot', {
-        "pluginKey": "YOUR_PLUGIN_KEY_HERE" // <--- 여기에 채널톡 플러그인 키를 붙여넣으세요!
-      });
-    </script>
+<script>
+  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+
+  ChannelIO('boot', {
+    "pluginKey": "cf4ede6e-497f-4875-a101-c94aa858a0b2"
+  });
+</script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap');
@@ -316,3 +299,4 @@
     </script>
 </body>
 </html>
+
