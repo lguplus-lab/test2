@@ -36,6 +36,7 @@
             
             <div class="hidden md:flex gap-8 items-center font-bold text-sm">
                 <a href="#how-it-works" class="text-slate-500 hover:text-blue-600 transition-colors">구매 절차</a>
+                <a href="#phone-prices" class="text-slate-500 hover:text-blue-600 transition-colors">가격표</a>
                 <a href="#benefits" class="text-slate-500 hover:text-blue-600 transition-colors">특별 혜택</a>
                 <a href="#reviews" class="text-slate-500 hover:text-blue-600 transition-colors">리얼 후기</a>
                 <button onclick="openChannelTalk(event)" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">견적 신청</button>
@@ -49,11 +50,13 @@
 
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-white flex flex-col pt-24 px-6 gap-6 md:hidden hidden">
         <a href="#how-it-works" class="text-2xl font-bold border-b pb-4 mobile-link">구매 절차</a>
+        <a href="#phone-prices" class="text-2xl font-bold border-b pb-4 mobile-link">인기모델 가격표</a>
         <a href="#benefits" class="text-2xl font-bold border-b pb-4 mobile-link">특별 혜택</a>
         <a href="#reviews" class="text-2xl font-bold border-b pb-4 mobile-link">리얼 후기</a>
         <button onclick="openChannelTalk(event)" class="text-left text-2xl font-bold text-blue-600 mobile-link">견적 신청하기</button>
     </div>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-b from-blue-50 to-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
@@ -66,7 +69,7 @@
                         <span class="text-xs md:text-sm font-bold text-blue-700">실시간 최저가 갱신 완료</span>
                     </div>
                     <h1 class="text-4xl md:text-6xl font-black text-slate-900 leading-[1.15] md:leading-tight">
-                        대리점 마진 없이 <br class="hidden md:block" />
+                        파트너 일절 안남음 <br class="hidden md:block" />
                         <span class="text-blue-600 underline decoration-blue-200 decoration-8 underline-offset-4">공장가 그대로.</span>
                     </h1>
                     <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-lg">
@@ -106,6 +109,7 @@
         </div>
     </section>
 
+    <!-- How it Works -->
     <section id="how-it-works" class="py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12 md:mb-16">
@@ -135,6 +139,86 @@
         </div>
     </section>
 
+    <!-- 인기 모델 가격 섹션 -->
+    <section id="phone-prices" class="py-20 md:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-blue-600 font-bold text-sm tracking-widest uppercase">Special Price</span>
+                <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">인기 모델 실시간 가격표</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">공시지원금과 스마트모바일 단독 추가 지원금을 더한 실제 체감 가격입니다. 기기를 클릭하시면 바로 상담이 연결됩니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div onclick="openChannelTalk(event)" class="cursor-pointer group bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-slate-50 rounded-[2rem] aspect-[4/5] flex items-center justify-center mb-8 overflow-hidden group-hover:bg-blue-50 transition-colors">
+                        <div class="text-center">
+                            <i data-lucide="smartphone" class="w-20 h-20 text-slate-200 group-hover:text-blue-200 transition-colors mx-auto mb-4"></i>
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full">BEST</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">Galaxy S24 Ultra</h3>
+                    <p class="text-slate-400 text-sm mb-6">역대급 AI 기능 탑재</p>
+                    <div class="flex items-end justify-between border-t border-slate-50 pt-6">
+                        <div>
+                            <p class="text-xs text-slate-400 line-through">출고가 1,698,400원</p>
+                            <p class="text-xl font-bold text-blue-600">월 32,500원~</p>
+                        </div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="openChannelTalk(event)" class="cursor-pointer group bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-slate-50 rounded-[2rem] aspect-[4/5] flex items-center justify-center mb-8 overflow-hidden group-hover:bg-blue-50 transition-colors">
+                        <div class="text-center">
+                            <i data-lucide="smartphone" class="w-20 h-20 text-slate-200 group-hover:text-blue-200 transition-colors mx-auto mb-4"></i>
+                            <span class="bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full">HOT</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">iPhone 15 Pro</h3>
+                    <p class="text-slate-400 text-sm mb-6">티타늄 소재의 가벼움</p>
+                    <div class="flex items-end justify-between border-t border-slate-50 pt-6">
+                        <div>
+                            <p class="text-xs text-slate-400 line-through">출고가 1,550,000원</p>
+                            <p class="text-xl font-bold text-blue-600">월 28,900원~</p>
+                        </div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="openChannelTalk(event)" class="cursor-pointer group bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-slate-50 rounded-[2rem] aspect-[4/5] flex items-center justify-center mb-8 overflow-hidden group-hover:bg-blue-50 transition-colors">
+                        <div class="text-center">
+                            <i data-lucide="smartphone" class="w-20 h-20 text-slate-200 group-hover:text-blue-200 transition-colors mx-auto mb-4"></i>
+                            <span class="bg-green-500 text-white text-[10px] font-bold px-3 py-1 rounded-full">SALE</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">Galaxy Z Flip 5</h3>
+                    <p class="text-slate-400 text-sm mb-6">주머니에 쏙 들어가는 디자인</p>
+                    <div class="flex items-end justify-between border-t border-slate-50 pt-6">
+                        <div>
+                            <p class="text-xs text-slate-400 line-through">출고가 1,399,200원</p>
+                            <p class="text-xl font-bold text-blue-600">월 15,400원~</p>
+                        </div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="openChannelTalk(event)" class="inline-flex items-center gap-2 text-slate-400 hover:text-blue-600 font-bold transition-colors">
+                    이외 전 기종 상담 가능 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
     <section id="benefits" class="py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <div class="bg-blue-600 text-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 lg:p-20 overflow-hidden relative">
@@ -162,7 +246,6 @@
                             <h3 class="text-xl md:text-2xl font-black mb-2">실시간 최저가 확인</h3>
                             <p class="text-slate-500 text-sm">상담은 100% 무료이며, 강요가 없습니다.</p>
                         </div>
-                        
                         <form id="quote-form" class="space-y-4">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="space-y-1">
@@ -226,6 +309,50 @@
         </div>
     </section>
 
+    <!-- [수정된 섹션] QR코드 고객 등록 섹션 -->
+    <section id="qr-registration" class="py-20 md:py-28 bg-white border-t border-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+                <!-- Background Decorative Element -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16 relative z-10">
+                    <!-- [수정됨] QR Image 영역 전체를 링크로 감싸 클릭 가능하게 변경 -->
+                    <a href="https://ucrm.lguplus.co.kr/mbl/v2/rcmd/moveInfo?param=bWFydTA2MTEmMjAyNjAyMjMxMjEyNDcmUVJDRF8=" 
+                       target="_blank" 
+                       class="relative bg-white p-6 rounded-[2.5rem] shadow-2xl transition-transform hover:scale-105 active:scale-95 block">
+                        <div class="w-40 h-40 md:w-48 md:h-48 flex items-center justify-center border-2 border-slate-100 rounded-2xl overflow-hidden bg-white">
+                            <img src="https://github.com/lguplus-gangnam/test2/blob/main/%EC%9D%B4%EB%AF%B8%EC%A7%80%20(2).png?raw=true" 
+                                 alt="고객등록 QR코드" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <!-- 클릭 유도 배지 추가 -->
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">CLICK</div>
+                    </a>
+
+                    <div class="flex-1 text-center md:text-left space-y-6">
+                        <div>
+                            <span class="text-blue-400 font-bold text-sm tracking-widest uppercase">Visit & Register</span>
+                            <h2 class="text-3xl md:text-4xl font-black mt-2">매장 방문 고객 등록</h2>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">
+                            매장에 방문하셨나요? <br class="hidden md:block" />
+                            옆의 QR코드를 스캔하시거나 이미지를 클릭하여 <br class="hidden md:block" />
+                            간편하게 고객 등록을 마치고 특별 혜택을 받으세요.
+                        </p>
+                        <!-- 버튼 링크 유지 -->
+                        <a href="https://ucrm.lguplus.co.kr/mbl/v2/rcmd/moveInfo?param=bWFydTA2MTEmMjAyNjAyMjMxMjEyNDcmUVJDRF8=" 
+                           target="_blank" 
+                           class="w-full md:w-auto bg-blue-600 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-900/20 flex items-center justify-center gap-3 group">
+                            <i data-lucide="user-plus" class="w-6 h-6"></i>
+                            지금 바로 등록하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-slate-950 text-slate-500 py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
             <div class="space-y-6">
@@ -239,17 +366,15 @@
     <script>
         lucide.createIcons();
 
-        // 채널톡 열기 함수
         function openChannelTalk(e) {
             if (e) e.preventDefault();
             if (typeof ChannelIO === 'function') {
                 ChannelIO('showMessenger');
             } else {
-                console.error("채널톡이 아직 로드되지 않았거나 플러그인 키가 잘못되었습니다.");
+                console.error("채널톡이 아직 로드되지 않았습니다.");
             }
         }
 
-        // 네비게이션 스크롤
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -261,7 +386,6 @@
             }
         });
 
-        // 모바일 메뉴
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -277,7 +401,6 @@
             lucide.createIcons();
         });
 
-        // 통신사 선택
         const carrierButtons = document.querySelectorAll('.carrier-btn');
         const selectedCarrierInput = document.getElementById('selected-carrier');
         carrierButtons.forEach(btn => {
@@ -288,15 +411,11 @@
             });
         });
 
-        // 폼 제출 시 채널톡 열기
         const quoteForm = document.getElementById('quote-form');
         quoteForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = new FormData(quoteForm).get('name');
-            // 정보를 기록하거나 알림을 띄우는 대신 채널톡을 엽니다.
             openChannelTalk();
         });
     </script>
 </body>
 </html>
-
